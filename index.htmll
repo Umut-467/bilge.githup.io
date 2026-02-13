@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilge Erkan ❤️ Umut</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background 0.5s;
+            overflow-x: hidden;
+            padding-bottom: 50px;
+        }
+
+        body.day-theme {
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe4f1 50%, #ffd4e8 100%);
+        }
+
+        body.night-theme {
+            background: linear-gradient(135deg, #2d1b3d 0%, #1a0f2e 50%, #0d0520 100%);
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
+        }
+
+        .site-progress-container {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff1493;
+        }
+
+        .site-progress-bar {
+            background: rgba(255, 255, 255, 0.4);
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .site-progress-fill {
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            height: 100%;
+            transition: width 0.8s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .relationship-timer {
+            font-size: 14px;
+            color: #ff69b4;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.15);
+        }
+
+        .night-theme .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 182, 193, 0.3);
+        }
+
+        .card h2 {
+            color: #ff1493;
+            font-size: 22px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .night-theme .card h2 {
+            color: #ffb6c1;
+        }
+
+        .love-box {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .heart-button {
+            width: 150px;
+            height: 150px;
+            font-size: 80px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+            position: relative;
+        }
+
+        .heart-button:active {
+            transform: scale(0.9);
+        }
+
+        .heart-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.6);
+        }
+
+        .love-counter {
+            font-size: 48px;
+            color: #ff1493;
+            font-weight: bold;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .level-info {
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.3);
+            height: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+            height: 100%;
+            transition: width 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .secret-progress {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 18px;
+            color: #ff1493;
+            font-weight: bold;
+        }
+
+        .surprise-message {
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #ff69b4;
+            margin: 15px 0;
+            font-style: italic;
+            color: #d63384;
+        }
+
+        .night-theme .surprise-message {
+            background: linear-gradient(135deg, #4a2c5a, #3a1f4a);
+            color: #ffb6c1;
+        }
+
+        .diary-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ff69b4;
+            border-radius: 15px;
+            font-size: 16px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.5);
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .mood-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .mood-btn {
+            padding: 15px;
+            border: 2px solid #ff69b4;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        .mood-btn:hover {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .diary-entry {
+            background: rgba(255, 240, 245, 0.5);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #ff69b4;
+        }
+
+        .night-theme .diary-entry {
+            background: rgba(255, 182, 193, 0.1);
+        }
+
+        .diary-date {
+            font-size: 12px;
+            color: #ff1493;
+            margin-bottom: 5px;
+        }
+
+        .theme-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .theme-btn {
+            padding: 10px 20px;
+            border: 2px solid #ff69b4;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .theme-btn.active {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff1493;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #d63384;
+            margin-top: 5px;
+        }
+
+        .photo-upload {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .photo-preview {
+            max-width: 100%;
+            border-radius: 15px;
+            margin: 15px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .photo-caption {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .game-area {
+            position: relative;
+            height: 300px;
+            background: rgba(255, 240, 245, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: crosshair;
+            border: 3px dashed #ff69b4;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 30px;
+            cursor: pointer;
+            animation: fall 3s linear;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(300px);
+            }
+        }
+
+        .game-score {
+            text-align: center;
+            font-size: 24px;
+            color: #ff1493;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float-up 2s ease-out forwards;
+        }
+
+        @keyframes float-up {
+            to {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        .secret-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            padding: 30px;
+            border-radius: 25px;
+            max-width: 400px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.4);
+        }
+
+        .night-theme .modal-content {
+            background: linear-gradient(135deg, #4a2c5a, #3a1f4a);
+            color: #ffb6c1;
+        }
+
+        .task-item {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ff1493;
+        }
+
+        .night-theme .task-item {
+            background: rgba(255, 182, 193, 0.1);
+        }
+
+        .task-item.completed {
+            opacity: 0.6;
+            text-decoration: line-through;
+        }
+
+        .close-modal {
+            float: right;
+            font-size: 30px;
+            cursor: pointer;
+            color: #ff1493;
+            line-height: 1;
+        }
+
+        .birthday-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff69b4, #ff1493, #ffd700);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            animation: rainbow 5s infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .birthday-content {
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .birthday-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .mood-history {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 15px;
+        }
+
+        .mood-entry {
+            background: rgba(255, 240, 245, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .night-theme .mood-entry {
+            background: rgba(255, 182, 193, 0.1);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-upload-label {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .file-upload-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+        }
+
+        .monthly-gift-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10001;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gift-box {
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 400px;
+            animation: giftAppear 1s;
+        }
+
+        @keyframes giftAppear {
+            from { transform: scale(0) rotate(180deg); }
+            to { transform: scale(1) rotate(0deg); }
+        }
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 20px;
+            animation: sparkle 1s ease-out forwards;
+        }
+
+        @keyframes sparkle {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            100% { transform: scale(2) rotate(360deg); opacity: 0; }
+        }
+
+        .love-test {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+
+        .test-question {
+            font-size: 16px;
+            color: #d63384;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .test-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .test-option {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .test-option:hover {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .test-result {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            .heart-button {
+                width: 120px;
+                height: 120px;
+                font-size: 60px;
+            }
+            .love-counter {
+                font-size: 36px;
+            }
+            .card h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body class="day-theme">
+    <!-- Floating Hearts Container -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Birthday Screen -->
+    <div class="birthday-screen" id="birthdayScreen">
+        <div class="birthday-content">
+            <h1>🎂🐻🌸</h1>
+            <h1>Mutlu Yıllar Bilge!</h1>
+            <p style="font-size: 20px; margin: 20px 0;">
+                Bugün senin özel günün! 🎉<br>
+                Umut seni çok çok seviyor! ❤️<br>
+                Birlikte geçireceğimiz nice yıllara! 🥰
+            </p>
+            <div style="font-size: 80px;">🎈🎁💖✨</div>
+            <button class="btn" onclick="closeBirthday()">Devam Et 💕</button>
+        </div>
+    </div>
+
+    <!-- Monthly Gift Screen -->
+    <div class="monthly-gift-screen" id="monthlyGiftScreen">
+        <div class="gift-box">
+            <div style="font-size: 80px; margin-bottom: 20px;">🎁</div>
+            <h2 style="color: #ff1493; margin-bottom: 15px;">Aylık Sürpriz Hediye!</h2>
+            <p id="monthlyGiftMessage" style="color: #d63384; font-size: 16px; margin: 15px 0;"></p>
+            <button class="btn" onclick="closeMonthlyGift()">Teşekkürler Aşkım! 💕</button>
+        </div>
+    </div>
+
+    <!-- Secret Modal -->
+    <div class="secret-modal" id="secretModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeSecret()">&times;</span>
+            <h2 style="text-align: center; color: #ff1493; margin-bottom: 20px;">
+                🔓 Gizli Şifre #<span id="secretNumber">1</span>
+            </h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #d63384;">
+                Bu şifreyi açmak için görevleri tamamla!
+            </p>
+            <div id="tasksList"></div>
+            <div id="secretMessageArea" style="display: none;">
+                <div style="background: linear-gradient(135deg, #ff69b4, #ff1493); color: white; padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center;">
+                    <h3>💖 Gizli Mesaj 💖</h3>
+                    <p id="secretMessageText" style="margin-top: 15px; font-size: 16px;"></p>
+                </div>
+                <button class="btn" onclick="closeSecret()" style="width: 100%; margin-top: 15px;">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Bilge Erkan ❤️ Umut</h1>
+            <div class="relationship-timer" id="relationshipTimer"></div>
+            <div class="site-progress-container">
+                <div class="progress-label">
+                    <span>Site İlerlemen</span>
+                    <span id="progressPercentage">0%</span>
+                </div>
+                <div class="site-progress-bar">
+                    <div class="site-progress-fill" id="siteProgressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily Surprise Message -->
+        <div class="card">
+            <h2>💌 Bugünün Mesajı</h2>
+            <div class="surprise-message" id="dailyMessage"></div>
+        </div>
+
+        <!-- Love Box -->
+        <div class="card">
+            <h2>❤️ Aşk Kutusu</h2>
+            <div class="love-box">
+                <button class="heart-button" id="heartButton" onclick="clickHeart()">❤️</button>
+                <div class="love-counter" id="loveCounter">0</div>
+                <div class="level-info" id="levelInfo">
+                    <div>Seviye: <span id="levelName">Yeni Aşk</span></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%">0%</div>
+                    </div>
+                </div>
+                <div class="secret-progress" id="secretProgress">
+                    Gizli Şifreler: 0/10
+                </div>
+            </div>
+        </div>
+
+        <!-- Relationship Stats -->
+        <div class="card">
+            <h2>📊 İlişki İstatistikleri</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" id="statClicks">0</div>
+                    <div class="stat-label">Toplam Tıklama</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statNotes">0</div>
+                    <div class="stat-label">Yazılan Not</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statSecrets">0</div>
+                    <div class="stat-label">Açılan Şifre</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="statDays">0</div>
+                    <div class="stat-label">İlişki Günü</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mood Panel -->
+        <div class="card">
+            <h2>😊 Ruh Hali Panelim</h2>
+            <div class="mood-grid">
+                <button class="mood-btn" onclick="selectMood('😊 Mutluyum')">😊 Mutluyum</button>
+                <button class="mood-btn" onclick="selectMood('🥰 Aşığım')">🥰 Aşığım</button>
+                <button class="mood-btn" onclick="selectMood('😢 Özledim')">😢 Özledim</button>
+                <button class="mood-btn" onclick="selectMood('💕 Romantik')">💕 Romantik</button>
+                <button class="mood-btn" onclick="selectMood('😔 Üzgünüm')">😔 Üzgünüm</button>
+                <button class="mood-btn" onclick="selectMood('🤗 Sarılmak İstiyorum')">🤗 Sarılmak İstiyorum</button>
+                <button class="mood-btn" onclick="selectMood('😍 Heyecanlıyım')">😍 Heyecanlıyım</button>
+                <button class="mood-btn" onclick="selectMood('😴 Yorgunum')">😴 Yorgunum</button>
+                <button class="mood-btn" onclick="selectMood('🌟 Enerjik')">🌟 Enerjik</button>
+                <button class="mood-btn" onclick="selectMood('💭 Düşünceliyim')">💭 Düşünceliyim</button>
+            </div>
+            <input type="text" class="diary-input" id="customMood" placeholder="Kendi ruh halimi yazıyorum..." style="min-height: 40px;">
+            <button class="btn" onclick="addCustomMood()">Ekle</button>
+            <div class="mood-history" id="moodHistory"></div>
+        </div>
+
+        <!-- Bilge's Diary -->
+        <div class="card">
+            <h2>📖 Bilge'nin Günlüğü</h2>
+            <textarea class="diary-input" id="diaryText" placeholder="Bugün neler hissediyorum..."></textarea>
+            <button class="btn" onclick="saveDiary()">Kaydet</button>
+            <div id="diaryEntries" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- Message Box -->
+        <div class="card">
+            <h2>💌 Bilge → Umut Mesaj Kutusu</h2>
+            <textarea class="diary-input" id="messageText" placeholder="Umut'a gizli mesajım..."></textarea>
+            <button class="btn" onclick="saveMessage()">Gönder</button>
+            <div id="messageEntries" style="margin-top: 20px;"></div>
+        </div>
+
+        <!-- Photo Upload -->
+        <div class="card">
+            <h2>📸 Fotoğraflarımız</h2>
+            <div class="photo-upload">
+                <input type="file" id="photoInput" accept="image/*" onchange="uploadPhoto()">
+                <label for="photoInput" class="file-upload-label">Fotoğraf Yükle</label>
+            </div>
+            <div id="photoGallery"></div>
+        </div>
+
+        <!-- Mini Game: Heart Catcher -->
+        <div class="card">
+            <h2>🎮 Kalp Yakalama Oyunu</h2>
+            <div class="game-score">Skor: <span id="gameScore">0</span></div>
+            <div class="game-area" id="gameArea"></div>
+            <button class="btn" onclick="startGame()">Oyunu Başlat</button>
+        </div>
+
+        <!-- Love Test -->
+        <div class="card">
+            <h2>💕 Aşk Testi</h2>
+            <div class="love-test">
+                <div class="test-question" id="testQuestion">Umut senin için ne ifade ediyor?</div>
+                <div class="test-options">
+                    <div class="test-option" onclick="answerTest('Her Şeyim')">Her Şeyim ❤️</div>
+                    <div class="test-option" onclick="answerTest('Hayatımın Anlamı')">Hayatımın Anlamı 💖</div>
+                    <div class="test-option" onclick="answerTest('Ruh Eşim')">Ruh Eşim 💫</div>
+                    <div class="test-option" onclick="answerTest('Sonsuz Aşkım')">Sonsuz Aşkım ♾️</div>
+                </div>
+                <div id="testResult" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Theme Selector -->
+        <div class="card">
+            <h2>🎨 Tema Seçimi</h2>
+            <div class="theme-selector">
+                <button class="theme-btn" onclick="setTheme('romantic')">💕 Romantik</button>
+                <button class="theme-btn" onclick="setTheme('cute')">🥰 Cute</button>
+                <button class="theme-btn active" onclick="setTheme('auto')">🌓 Otomatik</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Storage
+        const STORAGE_KEYS = {
+            LOVE_COUNT: 'loveCount',
+            SECRETS_UNLOCKED: 'secretsUnlocked',
+            DIARY_ENTRIES: 'diaryEntries',
+            MESSAGES: 'messages',
+            MOOD_HISTORY: 'moodHistory',
+            PHOTOS: 'photos',
+            THEME: 'theme',
+            LAST_DAILY_MESSAGE: 'lastDailyMessage',
+            DAILY_MESSAGE_INDEX: 'dailyMessageIndex',
+            LAST_MONTHLY_GIFT: 'lastMonthlyGift',
+            SECRET_TASKS: 'secretTasks',
+            GAME_HIGH_SCORE: 'gameHighScore',
+            COMPLETED_SECRETS: 'completedSecrets',
+            SITE_PROGRESS: 'siteProgress',
+            NOTIFICATION_PERMISSION: 'notificationPermission'
+        };
+
+        // Relationship start date
+        const RELATIONSHIP_START = new Date('2025-10-10T00:00:00+03:00');
+
+        // Initialize
+        let loveCount = parseInt(localStorage.getItem(STORAGE_KEYS.LOVE_COUNT)) || 0;
+        let secretsUnlocked = parseInt(localStorage.getItem(STORAGE_KEYS.SECRETS_UNLOCKED)) || 0;
+        let gameInterval;
+        let gameScore = 0;
+        let notificationInterval;
+
+        // Get completed secrets from localStorage
+        function getCompletedSecrets() {
+            return JSON.parse(localStorage.getItem(STORAGE_KEYS.COMPLETED_SECRETS)) || [];
+        }
+
+        // Save completed secret
+        function saveCompletedSecret(secretNum) {
+            const completed = getCompletedSecrets();
+            if (!completed.includes(secretNum)) {
+                completed.push(secretNum);
+                localStorage.setItem(STORAGE_KEYS.COMPLETED_SECRETS, JSON.stringify(completed));
+            }
+        }
+
+        // Check if secret is completed
+        function isSecretCompleted(secretNum) {
+            return getCompletedSecrets().includes(secretNum);
+        }
+
+        // Level system
+        const levels = [
+            { name: 'Yeni Aşk', threshold: 0 },
+            { name: 'Gelişen Aşk', threshold: 100 },
+            { name: 'Güçlü Aşk', threshold: 500 },
+            { name: 'Derin Aşk', threshold: 1000 },
+            { name: 'Büyük Aşk', threshold: 2500 },
+            { name: 'Muhteşem Aşk', threshold: 5000 },
+            { name: 'Efsanevi Aşk', threshold: 10000 },
+            { name: 'Sonsuz Aşk', threshold: 25000 },
+            { name: 'Mükemmel Aşk', threshold: 50000 },
+            { name: 'İlahi Aşk', threshold: 100000 }
+        ];
+
+        // Secret thresholds
+        const secretThresholds = [50, 150, 300, 600, 1200, 2500, 5000, 10000, 25000, 50000];
+
+        // Secret messages
+        const secretMessages = [
+            "Bilge, sen benim hayatımın en güzel hediyesisin. Her gün seninle daha da güzelleşiyor! 💖",
+            "Seninle geçirdiğim her an bir hazine. Seni sonsuza kadar sevmeye söz veriyorum! 🌟",
+            "Bilge, gülüşün benim dünyamı aydınlatıyor. Sen olmadan hiçbir şey tam değil! ✨",
+            "Her sabah seni düşünerek uyanmak, hayatımın en güzel ritüeli! 🌅",
+            "Bilge, sen benim ruh eşimsin. Seninle her şey daha anlamlı! 💫",
+            "Sana olan aşkım her geçen gün daha da büyüyor. Sen eşsizsin! 💝",
+            "Bilge, seninle olmak benim için cennet gibi. Sonsuza kadar yanındayım! 🏰",
+            "Her bakışında kayboluyorum. Sen benim her şeyimsin! 👀💕",
+            "Bilge, seninle yaşlanmak hayalim. El ele nice yıllara! 👫",
+            "Bu son şifre: Bilge Erkan, sen benim sonsuz aşkımsın! Ben Umut, seni sonsuza dek seveceğim! ♾️❤️"
+        ];
+
+        // Daily messages components
+        const messageTemplates = {
+            greetings: [
+                "Günaydın aşkım", "Merhaba tatlım", "Selam canım", "Hey güzelim",
+                "Günaydın sevgilim", "Merhaba prensesim", "Selam aşkım", "Hey tatlım"
+            ],
+            feelings: [
+                "bugün seni çok özledim", "seninle olmak istiyorum", "seni düşünüyorum",
+                "kalbin benimle mi acaba", "seni çok seviyorum", "gülüşünü özledim",
+                "sarılmak istiyorum sana", "yanında olmak istiyorum", "sesini duymak istiyorum"
+            ],
+            compliments: [
+                "Sen çok güzelsin", "Gözlerin muhteşem", "Gülüşün harika",
+                "Sen eşsizsin", "Çok özelsin benim için", "Sen mükemmelsin",
+                "Seninle her şey güzel", "Sen benim her şeyimsin"
+            ],
+            actions: [
+                "Bugün bir kahve içelim mi", "Film izleyelim beraber", "Gezelim mi",
+                "Romantik bir akşam geçirelim", "Sürpriz yapacağım sana", "Özel bir gün planlıyorum",
+                "Yemek yapalım beraber", "Uzun uzun konuşalım"
+            ],
+            endings: [
+                "Seni seviyorum! ❤️", "Öpüyorum seni! 💋", "Canımsın! 💕",
+                "Aşkımsın! 💖", "Her şeyimsin! 💝", "Sonsuzasın! ♾️",
+                "Biricik aşkım! 💗", "Kalbimdesin! 💓"
+            ]
+        };
+
+        // Task templates
+        const taskTemplates = [
+            { type: 'note', text: 'Günlüğüne bugün hissettiğin bir şeyi yaz' },
+            { type: 'mood', text: 'Ruh halini seç ve kaydet' },
+            { type: 'message', text: 'Umut\'a bir mesaj bırak' },
+            { type: 'game', text: 'Kalp yakalama oyununda en az 5 puan al' },
+            { type: 'photo', text: 'Bir fotoğraf yükle' },
+            { type: 'test', text: 'Aşk testini tamamla' },
+            { type: 'click', text: 'Kalbe 10 kere tıkla' }
+        ];
+
+        // Initialize app
+        function init() {
+            updateDisplay();
+            checkTheme();
+            loadDiary();
+            loadMessages();
+            loadMoodHistory();
+            loadPhotos();
+            generateDailyMessage();
+            checkBirthday();
+            checkMonthlyGift();
+            updateRelationshipTimer();
+            setInterval(updateRelationshipTimer, 1000);
+            checkPendingTasks();
+            updateSiteProgress();
+            requestNotificationPermission();
+        }
+        
+        // Check if there are pending tasks to show
+        function checkPendingTasks() {
+            const savedTasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.SECRET_TASKS));
+            if (savedTasks && savedTasks.completed.length < 3) {
+                // There are incomplete tasks, check if user has reached the threshold
+                const completedSecrets = getCompletedSecrets();
+                if (!completedSecrets.includes(savedTasks.secretNum)) {
+                    // Show the modal automatically if tasks are pending
+                    // This helps user continue where they left off
+                }
+            }
+        }
+
+        // Heart click
+        function clickHeart() {
+            loveCount++;
+            if (loveCount > 999999) {
+                loveCount = 0;
+            }
+            
+            localStorage.setItem(STORAGE_KEYS.LOVE_COUNT, loveCount);
+            updateDisplay();
+            createFloatingHeart();
+            createSparkle();
+            checkSecretUnlock();
+            updateSiteProgress();
+        }
+
+        // Update display
+        function updateDisplay() {
+            document.getElementById('loveCounter').textContent = loveCount.toLocaleString();
+            
+            // Update level
+            let currentLevel = levels[0];
+            let nextLevel = levels[1];
+            for (let i = levels.length - 1; i >= 0; i--) {
+                if (loveCount >= levels[i].threshold) {
+                    currentLevel = levels[i];
+                    nextLevel = levels[i + 1] || levels[i];
+                    break;
+                }
+            }
+            
+            document.getElementById('levelName').textContent = currentLevel.name;
+            
+            // Update progress
+            let progress = 0;
+            if (nextLevel !== currentLevel) {
+                const range = nextLevel.threshold - currentLevel.threshold;
+                const current = loveCount - currentLevel.threshold;
+                progress = Math.min((current / range) * 100, 100);
+            } else {
+                progress = 100;
+            }
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressFill').textContent = Math.round(progress) + '%';
+            
+            // Update secrets
+            document.getElementById('secretProgress').textContent = 
+                `Gizli Şifreler: ${secretsUnlocked}/10`;
+            
+            // Update stats
+            document.getElementById('statClicks').textContent = loveCount.toLocaleString();
+            const diaryCount = (JSON.parse(localStorage.getItem(STORAGE_KEYS.DIARY_ENTRIES)) || []).length;
+            document.getElementById('statNotes').textContent = diaryCount;
+            document.getElementById('statSecrets').textContent = secretsUnlocked;
+        }
+
+        // Check secret unlock
+        function checkSecretUnlock() {
+            const currentSecretIndex = secretsUnlocked;
+            if (currentSecretIndex < 10 && loveCount >= secretThresholds[currentSecretIndex]) {
+                const nextSecretNum = currentSecretIndex + 1;
+                
+                // CRITICAL: Check if this secret was already completed
+                if (isSecretCompleted(nextSecretNum)) {
+                    console.log(`Secret ${nextSecretNum} already completed, skipping...`);
+                    return; // Don't show popup if already completed
+                }
+                
+                showSecret(nextSecretNum);
+            }
+        }
+
+        // Show secret
+        function showSecret(secretNum) {
+            // Double check if already completed
+            if (isSecretCompleted(secretNum)) {
+                console.log(`Secret ${secretNum} is already completed!`);
+                return;
+            }
+            
+            // Check if there's an active task session for this secret
+            const savedTasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.SECRET_TASKS));
+            
+            if (!savedTasks || savedTasks.secretNum !== secretNum) {
+                // Create new tasks
+                const tasks = generateTasks(secretNum);
+                localStorage.setItem(STORAGE_KEYS.SECRET_TASKS, JSON.stringify({
+                    secretNum: secretNum,
+                    tasks: tasks,
+                    completed: []
+                }));
+            }
+            
+            document.getElementById('secretNumber').textContent = secretNum;
+            renderTasks();
+            document.getElementById('secretModal').style.display = 'flex';
+        }
+
+        // Generate tasks
+        function generateTasks(secretNum) {
+            const shuffled = [...taskTemplates].sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, 3);
+        }
+
+        // Render tasks
+        function renderTasks() {
+            const savedTasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.SECRET_TASKS));
+            if (!savedTasks) return;
+            
+            const tasksHTML = savedTasks.tasks.map((task, index) => {
+                const isCompleted = savedTasks.completed.includes(index);
+                return `
+                    <div class="task-item ${isCompleted ? 'completed' : ''}">
+                        ${isCompleted ? '✅' : '⭕'} ${task.text}
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('tasksList').innerHTML = tasksHTML;
+            
+            // Check if all completed
+            if (savedTasks.completed.length === 3) {
+                document.getElementById('secretMessageArea').style.display = 'block';
+                document.getElementById('secretMessageText').textContent = 
+                    secretMessages[savedTasks.secretNum - 1];
+                
+                // CRITICAL: Mark this secret as permanently completed
+                saveCompletedSecret(savedTasks.secretNum);
+                
+                // Update secrets unlocked counter
+                if (secretsUnlocked < savedTasks.secretNum) {
+                    secretsUnlocked = savedTasks.secretNum;
+                    localStorage.setItem(STORAGE_KEYS.SECRETS_UNLOCKED, secretsUnlocked);
+                    updateDisplay();
+                }
+                
+                // Update site progress
+                updateSiteProgress();
+            }
+        }
+
+        // Calculate site progress
+        function calculateSiteProgress() {
+            let totalTasks = 0;
+            let completedTasks = 0;
+            
+            // Love count progress (10% of total)
+            totalTasks += 10;
+            if (loveCount >= 100) completedTasks += 2;
+            if (loveCount >= 500) completedTasks += 2;
+            if (loveCount >= 1000) completedTasks += 2;
+            if (loveCount >= 5000) completedTasks += 2;
+            if (loveCount >= 10000) completedTasks += 2;
+            
+            // Secrets unlocked (50% of total)
+            totalTasks += 10;
+            completedTasks += getCompletedSecrets().length;
+            
+            // Diary entries (10% of total)
+            totalTasks += 5;
+            const diaryCount = (JSON.parse(localStorage.getItem(STORAGE_KEYS.DIARY_ENTRIES)) || []).length;
+            completedTasks += Math.min(diaryCount, 5);
+            
+            // Messages sent (5% of total)
+            totalTasks += 3;
+            const messageCount = (JSON.parse(localStorage.getItem(STORAGE_KEYS.MESSAGES)) || []).length;
+            completedTasks += Math.min(messageCount, 3);
+            
+            // Mood history (5% of total)
+            totalTasks += 3;
+            const moodCount = (JSON.parse(localStorage.getItem(STORAGE_KEYS.MOOD_HISTORY)) || []).length;
+            completedTasks += Math.min(moodCount, 3);
+            
+            // Photos uploaded (10% of total)
+            totalTasks += 5;
+            const photoCount = (JSON.parse(localStorage.getItem(STORAGE_KEYS.PHOTOS)) || []).length;
+            completedTasks += Math.min(photoCount, 5);
+            
+            // Game played (5% of total)
+            totalTasks += 2;
+            const highScore = parseInt(localStorage.getItem(STORAGE_KEYS.GAME_HIGH_SCORE)) || 0;
+            if (highScore >= 5) completedTasks += 1;
+            if (highScore >= 10) completedTasks += 1;
+            
+            // Love test completed (5% of total)
+            totalTasks += 2;
+            const testCompleted = localStorage.getItem('loveTestCompleted');
+            if (testCompleted) completedTasks += 2;
+            
+            const percentage = Math.round((completedTasks / totalTasks) * 100);
+            return Math.min(percentage, 100);
+        }
+        
+        // Update site progress display
+        function updateSiteProgress() {
+            const progress = calculateSiteProgress();
+            const progressFill = document.getElementById('siteProgressFill');
+            const progressPercentage = document.getElementById('progressPercentage');
+            
+            if (progressFill && progressPercentage) {
+                progressFill.style.width = progress + '%';
+                progressPercentage.textContent = progress + '%';
+                
+                // Save to localStorage
+                localStorage.setItem(STORAGE_KEYS.SITE_PROGRESS, progress);
+            }
+        }
+        
+        // Notification System
+        const notificationMessages = [
+            "❤️ Yeni görev seni bekliyor!",
+            "💕 Siteyi keşfetmeye devam et",
+            "✨ Bugün ilerleme kaydettin mi?",
+            "🎁 Sürpriz içerik seni bekliyor",
+            "💖 Geri dön, yeni şeyler var",
+            "🌟 Umut seni düşünüyor",
+            "💝 Günlüğüne bir şeyler yazmayı unutma",
+            "🎮 Mini oyunları denedin mi?",
+            "📸 Yeni bir fotoğraf paylaş",
+            "😊 Ruh halini güncellemeyi unutma"
+        ];
+        
+        // Request notification permission
+        async function requestNotificationPermission() {
+            if (!('Notification' in window)) {
+                console.log('Bu tarayıcı bildirimleri desteklemiyor');
+                return false;
+            }
+            
+            const permission = localStorage.getItem(STORAGE_KEYS.NOTIFICATION_PERMISSION);
+            
+            if (permission === 'granted') {
+                startNotificationSystem();
+                return true;
+            } else if (permission === 'denied') {
+                return false;
+            }
+            
+            // Ask for permission after 5 seconds
+            setTimeout(async () => {
+                try {
+                    const result = await Notification.requestPermission();
+                    localStorage.setItem(STORAGE_KEYS.NOTIFICATION_PERMISSION, result);
+                    
+                    if (result === 'granted') {
+                        startNotificationSystem();
+                        showNotification('🎉 Bildirimler aktif!', 'Artık seni özel anlarda haberdar edeceğim ❤️');
+                    }
+                } catch (error) {
+                    console.log('Bildirim izni istenemedi:', error);
+                }
+            }, 5000);
+        }
+        
+        // Show notification
+        function showNotification(title, body) {
+            if (!('Notification' in window)) return;
+            if (Notification.permission !== 'granted') return;
+            
+            try {
+                const notification = new Notification(title, {
+                    body: body,
+                    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">❤️</text></svg>',
+                    badge: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">💖</text></svg>',
+                    tag: 'love-site-notification',
+                    requireInteraction: false,
+                    silent: false
+                });
+                
+                notification.onclick = function() {
+                    window.focus();
+                    notification.close();
+                };
+                
+                setTimeout(() => notification.close(), 5000);
+            } catch (error) {
+                console.log('Bildirim gösterilemedi:', error);
+            }
+        }
+        
+        // Start notification system
+        function startNotificationSystem() {
+            if (Notification.permission !== 'granted') return;
+            
+            // Clear existing interval
+            if (notificationInterval) {
+                clearInterval(notificationInterval);
+            }
+            
+            // Send random notifications
+            function scheduleNextNotification() {
+                // Random interval between 30-120 seconds (30000-120000 ms)
+                const randomDelay = Math.floor(Math.random() * (120000 - 30000 + 1)) + 30000;
+                
+                setTimeout(() => {
+                    // Only send if page is not visible
+                    if (document.hidden) {
+                        const randomMessage = notificationMessages[Math.floor(Math.random() * notificationMessages.length)];
+                        showNotification('Bilge & Umut ❤️', randomMessage);
+                    }
+                    
+                    scheduleNextNotification();
+                }, randomDelay);
+            }
+            
+            scheduleNextNotification();
+        }
+        
+        function completeTask(taskType) {
+            const savedTasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.SECRET_TASKS));
+            if (!savedTasks) return;
+            
+            const taskIndex = savedTasks.tasks.findIndex(t => t.type === taskType);
+            if (taskIndex !== -1 && !savedTasks.completed.includes(taskIndex)) {
+                savedTasks.completed.push(taskIndex);
+                localStorage.setItem(STORAGE_KEYS.SECRET_TASKS, JSON.stringify(savedTasks));
+                
+                if (document.getElementById('secretModal').style.display === 'flex') {
+                    renderTasks();
+                }
+            }
+        }
+
+        // Close secret
+        function closeSecret() {
+            const savedTasks = JSON.parse(localStorage.getItem(STORAGE_KEYS.SECRET_TASKS));
+            
+            // Only clear the task session if all tasks are completed
+            if (savedTasks && savedTasks.completed.length === 3) {
+                localStorage.removeItem(STORAGE_KEYS.SECRET_TASKS);
+            }
+            
+            document.getElementById('secretModal').style.display = 'none';
+            document.getElementById('secretMessageArea').style.display = 'none';
+        }
+
+        // Floating heart animation
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight / 2 + 'px';
+            document.getElementById('floatingHearts').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 2000);
+        }
+
+        // Sparkle effect
+        function createSparkle() {
+            const sparkles = ['✨', '💫', '⭐', '🌟', '💖', '💕'];
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 1000);
+        }
+
+        // Daily message
+        function generateDailyMessage() {
+            const today = new Date().toDateString();
+            const lastDate = localStorage.getItem(STORAGE_KEYS.LAST_DAILY_MESSAGE);
+            
+            if (lastDate !== today) {
+                const message = createRandomMessage();
+                document.getElementById('dailyMessage').textContent = message;
+                localStorage.setItem(STORAGE_KEYS.LAST_DAILY_MESSAGE, today);
+                localStorage.setItem(STORAGE_KEYS.DAILY_MESSAGE_INDEX, message);
+            } else {
+                const savedMessage = localStorage.getItem(STORAGE_KEYS.DAILY_MESSAGE_INDEX);
+                document.getElementById('dailyMessage').textContent = savedMessage || createRandomMessage();
+            }
+        }
+
+        function createRandomMessage() {
+            const greeting = messageTemplates.greetings[Math.floor(Math.random() * messageTemplates.greetings.length)];
+            const feeling = messageTemplates.feelings[Math.floor(Math.random() * messageTemplates.feelings.length)];
+            const compliment = messageTemplates.compliments[Math.floor(Math.random() * messageTemplates.compliments.length)];
+            const action = messageTemplates.actions[Math.floor(Math.random() * messageTemplates.actions.length)];
+            const ending = messageTemplates.endings[Math.floor(Math.random() * messageTemplates.endings.length)];
+            
+            return `${greeting}! ${feeling}. ${compliment}. ${action}? ${ending}`;
+        }
+
+        // Diary
+        function saveDiary() {
+            const text = document.getElementById('diaryText').value.trim();
+            if (!text) return;
+            
+            const entries = JSON.parse(localStorage.getItem(STORAGE_KEYS.DIARY_ENTRIES)) || [];
+            entries.unshift({
+                text: text,
+                date: new Date().toLocaleString('tr-TR')
+            });
+            localStorage.setItem(STORAGE_KEYS.DIARY_ENTRIES, JSON.stringify(entries));
+            
+            document.getElementById('diaryText').value = '';
+            loadDiary();
+            completeTask('note');
+            updateDisplay();
+            updateSiteProgress();
+        }
+
+        function loadDiary() {
+            const entries = JSON.parse(localStorage.getItem(STORAGE_KEYS.DIARY_ENTRIES)) || [];
+            const html = entries.map(entry => `
+                <div class="diary-entry">
+                    <div class="diary-date">${entry.date}</div>
+                    <div>${entry.text}</div>
+                </div>
+            `).join('');
+            document.getElementById('diaryEntries').innerHTML = html;
+        }
+
+        // Messages
+        function saveMessage() {
+            const text = document.getElementById('messageText').value.trim();
+            if (!text) return;
+            
+            const messages = JSON.parse(localStorage.getItem(STORAGE_KEYS.MESSAGES)) || [];
+            messages.unshift({
+                text: text,
+                date: new Date().toLocaleString('tr-TR')
+            });
+            localStorage.setItem(STORAGE_KEYS.MESSAGES, JSON.stringify(messages));
+            
+            document.getElementById('messageText').value = '';
+            loadMessages();
+            completeTask('message');
+            updateSiteProgress();
+        }
+
+        function loadMessages() {
+            const messages = JSON.parse(localStorage.getItem(STORAGE_KEYS.MESSAGES)) || [];
+            const html = messages.map(msg => `
+                <div class="diary-entry">
+                    <div class="diary-date">${msg.date}</div>
+                    <div>💌 ${msg.text}</div>
+                </div>
+            `).join('');
+            document.getElementById('messageEntries').innerHTML = html;
+        }
+
+        // Mood
+        function selectMood(mood) {
+            saveMood(mood);
+        }
+
+        function addCustomMood() {
+            const mood = document.getElementById('customMood').value.trim();
+            if (!mood) return;
+            saveMood(mood);
+            document.getElementById('customMood').value = '';
+        }
+
+        function saveMood(mood) {
+            const moods = JSON.parse(localStorage.getItem(STORAGE_KEYS.MOOD_HISTORY)) || [];
+            moods.unshift({
+                mood: mood,
+                date: new Date().toLocaleString('tr-TR')
+            });
+            localStorage.setItem(STORAGE_KEYS.MOOD_HISTORY, JSON.stringify(moods));
+            loadMoodHistory();
+            completeTask('mood');
+            updateSiteProgress();
+        }
+
+        function loadMoodHistory() {
+            const moods = JSON.parse(localStorage.getItem(STORAGE_KEYS.MOOD_HISTORY)) || [];
+            const html = moods.slice(0, 10).map(mood => `
+                <div class="mood-entry">
+                    <strong>${mood.mood}</strong><br>
+                    <small>${mood.date}</small>
+                </div>
+            `).join('');
+            document.getElementById('moodHistory').innerHTML = html;
+        }
+
+        // Photo upload
+        function uploadPhoto() {
+            const file = document.getElementById('photoInput').files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const photos = JSON.parse(localStorage.getItem(STORAGE_KEYS.PHOTOS)) || [];
+                photos.unshift({
+                    data: e.target.result,
+                    date: new Date().toLocaleString('tr-TR'),
+                    caption: ''
+                });
+                localStorage.setItem(STORAGE_KEYS.PHOTOS, JSON.stringify(photos));
+                loadPhotos();
+                completeTask('photo');
+                updateSiteProgress();
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function loadPhotos() {
+            const photos = JSON.parse(localStorage.getItem(STORAGE_KEYS.PHOTOS)) || [];
+            const html = photos.map((photo, index) => `
+                <div style="margin: 20px 0;">
+                    <img src="${photo.data}" class="photo-preview">
+                    <input type="text" class="photo-caption" placeholder="Fotoğrafa başlık ekle..." 
+                           value="${photo.caption}" onchange="updateCaption(${index}, this.value)">
+                    <div style="text-align: center; color: #ff69b4; font-size: 12px; margin-top: 5px;">
+                        ${photo.date}
+                    </div>
+                </div>
+            `).join('');
+            document.getElementById('photoGallery').innerHTML = html;
+        }
+
+        function updateCaption(index, caption) {
+            const photos = JSON.parse(localStorage.getItem(STORAGE_KEYS.PHOTOS)) || [];
+            photos[index].caption = caption;
+            localStorage.setItem(STORAGE_KEYS.PHOTOS, JSON.stringify(photos));
+        }
+
+        // Game
+        function startGame() {
+            gameScore = 0;
+            document.getElementById('gameScore').textContent = gameScore;
+            document.getElementById('gameArea').innerHTML = '';
+            
+            if (gameInterval) clearInterval(gameInterval);
+            
+            gameInterval = setInterval(() => {
+                createFallingHeart();
+            }, 800);
+            
+            setTimeout(() => {
+                clearInterval(gameInterval);
+                const highScore = parseInt(localStorage.getItem(STORAGE_KEYS.GAME_HIGH_SCORE)) || 0;
+                if (gameScore > highScore) {
+                    localStorage.setItem(STORAGE_KEYS.GAME_HIGH_SCORE, gameScore);
+                    updateSiteProgress();
+                }
+                if (gameScore >= 5) {
+                    completeTask('game');
+                }
+            }, 15000);
+        }
+
+        function createFallingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'falling-heart';
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 90 + '%';
+            heart.onclick = function() {
+                gameScore++;
+                document.getElementById('gameScore').textContent = gameScore;
+                this.remove();
+                createSparkle();
+            };
+            document.getElementById('gameArea').appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 3000);
+        }
+
+        // Love test
+        function answerTest(answer) {
+            const result = `
+                <div class="test-result">
+                    Cevabın: "${answer}" 💖<br><br>
+                    Umut da seni aynı şekilde seviyor! ❤️<br>
+                    Sizin aşkınız çok özel! ✨
+                </div>
+            `;
+            document.getElementById('testResult').innerHTML = result;
+            document.getElementById('testResult').style.display = 'block';
+            localStorage.setItem('loveTestCompleted', 'true');
+            completeTask('test');
+            updateSiteProgress();
+        }
+
+        // Theme
+        function setTheme(theme) {
+            localStorage.setItem(STORAGE_KEYS.THEME, theme);
+            document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            checkTheme();
+        }
+
+        function checkTheme() {
+            const theme = localStorage.getItem(STORAGE_KEYS.THEME) || 'auto';
+            
+            if (theme === 'auto') {
+                const hour = new Date().getHours();
+                if (hour >= 20 || hour < 6) {
+                    document.body.className = 'night-theme';
+                } else {
+                    document.body.className = 'day-theme';
+                }
+            } else if (theme === 'cute') {
+                document.body.className = 'day-theme';
+            } else if (theme === 'romantic') {
+                document.body.className = 'day-theme';
+            }
+        }
+
+        // Relationship timer
+        function updateRelationshipTimer() {
+            const now = new Date();
+            const diff = now - RELATIONSHIP_START;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('relationshipTimer').textContent = 
+                `Umut seni ${days} gün ${hours} saat ${minutes} dakika ${seconds} saniyedir seviyor 💕`;
+            
+            document.getElementById('statDays').textContent = days;
+        }
+
+        // Birthday check
+        function checkBirthday() {
+            const today = new Date();
+            if (today.getMonth() === 6 && today.getDate() === 14) { // July 14
+                document.getElementById('birthdayScreen').style.display = 'flex';
+            }
+        }
+
+        function closeBirthday() {
+            document.getElementById('birthdayScreen').style.display = 'none';
+        }
+
+        // Monthly gift
+        function checkMonthlyGift() {
+            const today = new Date();
+            const monthKey = `${today.getFullYear()}-${today.getMonth()}`;
+            const lastGift = localStorage.getItem(STORAGE_KEYS.LAST_MONTHLY_GIFT);
+            
+            if (today.getDate() === 1 && lastGift !== monthKey) {
+                const gifts = [
+                    "Bu ay sana özel bir sürprizim var! Merakla bekle... 🎁",
+                    "Yeni bir ay, yeni maceralar! Seninle her şey güzel! 🌟",
+                    "Bu ay seninle daha da özel olacak! 💖",
+                    "Ayın ilk günü, sana olan sevgimin hediyesi! 💝",
+                    "Yeni bir ay başladı, aşkımız daha da güçlendi! 💪❤️"
+                ];
+                const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
+                
+                document.getElementById('monthlyGiftMessage').textContent = randomGift;
+                document.getElementById('monthlyGiftScreen').style.display = 'flex';
+                localStorage.setItem(STORAGE_KEYS.LAST_MONTHLY_GIFT, monthKey);
+            }
+        }
+
+        function closeMonthlyGift() {
+            document.getElementById('monthlyGiftScreen').style.display = 'none';
+        }
+
+        // Start app
+        init();
+        
+        // Auto check tasks completion
+        setInterval(() => {
+            const clickTask = document.getElementById('loveCounter').textContent;
+            if (parseInt(clickTask.replace(/,/g, '')) % 10 === 0) {
+                completeTask('click');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
